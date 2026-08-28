@@ -1,13 +1,35 @@
-import TodoForm from "./components/TodoForm";
-import useTodos from "./hooks/useTodos";
+import TodoList from "./components/TodoList";
+import "./App.css";
 
 function App() {
-  const { addTodo } = useTodos();
+  const todos = [
+    {
+      id: 1,
+      title: "Sample Task 1",
+      completed: false,
+    },
+    {
+      id: 2,
+      title: "Sample Task 2",
+      completed: true,
+    },
+  ];
+
+  function deleteTodo() {}
+
+  function toggleTodo() {}
 
   return (
-    <div>
-      <h1>Todo App - Logic Part</h1>
-      <TodoForm addTodo={addTodo} />
+    <div className="app">
+      <div className="todo-container">
+        <h1>Todo App - Tasks UI</h1>
+
+        <TodoList
+          todos={todos}
+          deleteTodo={deleteTodo}
+          toggleTodo={toggleTodo}
+        />
+      </div>
     </div>
   );
 }
